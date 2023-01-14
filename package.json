@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "server": "nx serve server",
-    "client": "nx serve client"
+    "client": "nx serve client",
+    "graph": "nx graph"
   },
   "private": true,
   "devDependencies": {
