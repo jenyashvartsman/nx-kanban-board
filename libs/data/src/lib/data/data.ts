@@ -1,9 +1,7 @@
 import { ITaskCommentModel } from '../models/comment';
 import { ETaskPriority, ETaskStatus, ITaskModel } from '../models/task';
 import { IUserModel } from '../models/user';
-import * as crypto from 'crypto';
-
-const uuid = () => crypto.randomUUID();
+import { now, uuid } from '../util/util';
 
 export const users: IUserModel[] = [
   { email: 'admin@email.com', password: 'admin' },
@@ -18,7 +16,7 @@ export const tasks: ITaskModel[] = [
     title: 'Init project',
     description: 'Create project and server/client apps',
     priority: ETaskPriority.HIGH,
-    createdAt: new Date(),
+    createdAt: now(),
     status: ETaskStatus.DONE,
   },
   {
@@ -27,7 +25,7 @@ export const tasks: ITaskModel[] = [
     title: 'Implement server app',
     description: 'Create rest APIs to handle login, tasks and comments',
     priority: ETaskPriority.MEDIUM,
-    createdAt: new Date(),
+    createdAt: now(),
     status: ETaskStatus.TODO,
   },
   {
@@ -36,7 +34,7 @@ export const tasks: ITaskModel[] = [
     title: 'Implement client app',
     description: 'Create GUI to handle login, tasks and comments',
     priority: ETaskPriority.MEDIUM,
-    createdAt: new Date(),
+    createdAt: now(),
     status: ETaskStatus.TODO,
   },
 ];
@@ -47,13 +45,13 @@ export const comments: ITaskCommentModel[] = [
     taskId: tasks[0].id,
     userEmail: users[0].email,
     comment: 'Created server node express app',
-    createdAt: new Date(),
+    createdAt: now(),
   },
   {
     id: uuid(),
     taskId: tasks[0].id,
     userEmail: users[0].email,
     comment: 'Created client angular app',
-    createdAt: new Date(),
+    createdAt: now(),
   },
 ];

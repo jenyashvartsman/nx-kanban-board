@@ -13,6 +13,8 @@ export type ITaskCreateModel = Pick<
   'userEmail' | 'title' | 'description' | 'priority'
 >;
 
+export type ITaskChangeUserModel = Pick<ITaskModel, 'userEmail'>;
+
 export enum ETaskPriority {
   HIGH = 'High',
   MEDIUM = 'Medium',
