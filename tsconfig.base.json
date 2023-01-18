@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-kanban-board/api": ["libs/api/src/index.ts"],
       "@nx-kanban-board/data": ["libs/data/src/index.ts"]
     }
   },

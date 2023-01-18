@@ -4,7 +4,7 @@ import {
   ITaskCreateModel,
   ITaskEditModel,
   ITaskModel,
-} from '../models/tasks.model';
+} from '@nx-kanban-board/api';
 import { now, uuid } from '../util/util';
 
 export interface TasksDataClient {

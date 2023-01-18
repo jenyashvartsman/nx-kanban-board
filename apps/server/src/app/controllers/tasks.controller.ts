@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
-import {
-  createTasksDataClient,
-  ITaskCreateModel,
-  ITaskEditModel,
-} from '@nx-kanban-board/data';
+import { createTasksDataClient } from '@nx-kanban-board/data';
+import { ITaskCreateModel, ITaskEditModel } from '@nx-kanban-board/api';
 import { getNotFoundMessage } from '../util/util';
 
 const tasksDataClient = createTasksDataClient();

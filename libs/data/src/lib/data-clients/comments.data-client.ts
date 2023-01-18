@@ -3,7 +3,7 @@ import {
   ICommentCreateModel,
   ICommentEditModel,
   ICommentModel,
-} from '../models/comments.model';
+} from '@nx-kanban-board/api';
 import { now, uuid } from '../util/util';
 
 export interface CommentsDataClient {

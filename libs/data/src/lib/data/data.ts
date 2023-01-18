@@ -1,6 +1,6 @@
-import { ICommentModel } from '../models/comments.model';
-import { ETaskPriority, ETaskStatus, ITaskModel } from '../models/tasks.model';
-import { IUserModel } from '../models/user.model';
+import { ICommentModel } from '@nx-kanban-board/api';
+import { ETaskPriority, ETaskStatus, ITaskModel } from '@nx-kanban-board/api';
+import { IUserModel } from '@nx-kanban-board/api';
 import { now, uuid } from '../util/util';
 
 export const users: IUserModel[] = [

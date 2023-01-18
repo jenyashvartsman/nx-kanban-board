@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
-import {
-  createCommentsDataClient,
-  ICommentCreateModel,
-  ICommentEditModel,
-} from '@nx-kanban-board/data';
+import { createCommentsDataClient } from '@nx-kanban-board/data';
+import { ICommentCreateModel, ICommentEditModel } from '@nx-kanban-board/api';
 import { getNotFoundMessage } from '../util/util';
 
 const commentsDataClient = createCommentsDataClient();
