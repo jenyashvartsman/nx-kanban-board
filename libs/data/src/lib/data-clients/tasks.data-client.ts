@@ -1,22 +1,18 @@
-import { tasks } from './data/data';
+import { tasks } from '../data/data';
 import {
   ETaskStatus,
-  ITaskChangeUserModel,
   ITaskCreateModel,
+  ITaskEditModel,
   ITaskModel,
-} from './models/task';
-import { now, uuid } from './util/util';
+} from '../models/tasks.model';
+import { now, uuid } from '../util/util';
 
 export interface TasksDataClient {
   getTasks(): ITaskModel[];
   getTask(id: string): ITaskModel | null;
   createTask(task: ITaskCreateModel): ITaskModel;
-  editTask(id: string, task: ITaskModel): ITaskModel | null;
+  editTask(id: string, task: ITaskEditModel): ITaskModel | null;
   deleteTask(id: string): ITaskModel | null;
-  changeTaskUser(
-    id: string,
-    changeUserTask: ITaskChangeUserModel
-  ): ITaskModel | null;
 }
 
 export const createTasksDataClient = (): TasksDataClient => ({
@@ -62,17 +58,6 @@ export const createTasksDataClient = (): TasksDataClient => ({
       const deleteTask = { ...tasks[deleteTaskIndex] };
       tasks.splice(deleteTaskIndex, 1);
       return deleteTask;
-    } else {
-      return null;
-    }
-  },
-
-  changeTaskUser(id: string, changeUserTask: ITaskChangeUserModel) {
-    const editTask = this.getTask(id);
-
-    if (editTask) {
-      editTask.userEmail = changeUserTask.userEmail;
-      return editTask;
     } else {
       return null;
     }

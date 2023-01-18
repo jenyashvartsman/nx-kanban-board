@@ -1,6 +1,6 @@
-import { ITaskCommentModel } from '../models/comment';
-import { ETaskPriority, ETaskStatus, ITaskModel } from '../models/task';
-import { IUserModel } from '../models/user';
+import { ICommentModel } from '../models/comments.model';
+import { ETaskPriority, ETaskStatus, ITaskModel } from '../models/tasks.model';
+import { IUserModel } from '../models/user.model';
 import { now, uuid } from '../util/util';
 
 export const users: IUserModel[] = [
@@ -39,7 +39,7 @@ export const tasks: ITaskModel[] = [
   },
 ];
 
-export const comments: ITaskCommentModel[] = [
+export const comments: ICommentModel[] = [
   {
     id: uuid(),
     taskId: tasks[0].id,

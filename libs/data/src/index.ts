@@ -1,4 +1,6 @@
-export * from './lib/tasks-data-client';
-export * from './lib/models/user';
-export * from './lib/models/task';
-export * from './lib/models/comment';
+export * from './lib/data-clients/tasks.data-client';
+export * from './lib/data-clients/comments.data-client';
+
+export * from './lib/models/user.model';
+export * from './lib/models/tasks.model';
+export * from './lib/models/comments.model';
