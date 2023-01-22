@@ -22,4 +22,8 @@ export class TasksService {
       null
     );
   }
+
+  deleteTask(id: string): Observable<ITaskModel> {
+    return this.http.delete<ITaskModel>(`${this.apiUrl}/${id}`);
+  }
 }

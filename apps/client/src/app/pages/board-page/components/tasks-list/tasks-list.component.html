@@ -12,7 +12,10 @@
     (cdkDropListDropped)="drop($event)"
   >
     <div class="tasks-list__box" *ngFor="let task of tasks" cdkDrag>
-      <nx-kanban-board-task-card [task]="task"></nx-kanban-board-task-card>
+      <nx-kanban-board-task-card
+        [task]="task"
+        (deleteClicked)="taskDelete.emit($event)"
+      ></nx-kanban-board-task-card>
     </div>
   </div>
 </div>

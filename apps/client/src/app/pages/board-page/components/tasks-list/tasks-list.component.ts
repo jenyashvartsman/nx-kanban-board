@@ -30,6 +30,7 @@ export class TasksListComponent {
   @Input() tasks: ITaskModel[] = [];
 
   @Output() taskMoved: EventEmitter<ITaskModel> = new EventEmitter();
+  @Output() taskDelete: EventEmitter<ITaskModel> = new EventEmitter();
 
   drop(event: CdkDragDrop<ITaskModel[]>): void {
     if (event.previousContainer === event.container) {

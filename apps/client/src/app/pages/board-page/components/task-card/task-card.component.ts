@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ITaskModel } from '@nx-kanban-board/api';
 import { MatCardModule } from '@angular/material/card';
@@ -14,4 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class TaskCardComponent {
   @Input() task!: ITaskModel;
+
+  @Output() deleteClicked: EventEmitter<ITaskModel> = new EventEmitter();
 }

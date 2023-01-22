@@ -47,7 +47,7 @@ const deleteTask = (req: Request, res: Response) => {
 
 const changeTaskStatus = (req: Request, res: Response) => {
   const taskId = req.params.id;
-  const taskStatus: ETaskStatus = req.params.status;
+  const taskStatus: ETaskStatus = <ETaskStatus>req.params.status;
   const changeTaskStatus = tasksDataClient.changeTaskStatus(taskId, taskStatus);
   changeTaskStatus
     ? res.json(changeTaskStatus)

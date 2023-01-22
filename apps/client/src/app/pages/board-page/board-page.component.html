@@ -8,6 +8,7 @@
         title="Todo"
         [tasks]="tasksTodo"
         (taskMoved)="updateTask($event)"
+        (taskDelete)="confirmDeleteTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
 
@@ -19,6 +20,7 @@
         title="On hold"
         [tasks]="tasksOnHold"
         (taskMoved)="updateTask($event)"
+        (taskDelete)="confirmDeleteTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
 
@@ -34,6 +36,7 @@
         title="In progress"
         [tasks]="tasksInProgress"
         (taskMoved)="updateTask($event)"
+        (taskDelete)="confirmDeleteTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
 
@@ -45,6 +48,7 @@
         title="Done"
         [tasks]="tasksDone"
         (taskMoved)="updateTask($event)"
+        (taskDelete)="confirmDeleteTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
   </div>
