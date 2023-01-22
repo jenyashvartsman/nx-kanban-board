@@ -1,1 +1,43 @@
-<p>board-page works!</p>
+<div class="board-page">
+  <div class="board-page__tasks">
+    <!-- todo -->
+    <div>
+      <nx-kanban-board-tasks-list
+        id="todo"
+        [connectedToIds]="['onHold', 'inProgress']"
+        title="Todo"
+        [tasks]="tasksTodo"
+      ></nx-kanban-board-tasks-list>
+    </div>
+
+    <!-- on hold -->
+    <div>
+      <nx-kanban-board-tasks-list
+        id="onHold"
+        [connectedToIds]="['todo', 'inProgress']"
+        title="On hold"
+        [tasks]="tasksOnHold"
+      ></nx-kanban-board-tasks-list>
+    </div>
+
+    <!-- in progress -->
+    <div>
+      <nx-kanban-board-tasks-list
+        id="inProgress"
+        [connectedToIds]="['todo', 'onHold', 'done']"
+        title="In progress"
+        [tasks]="tasksInProgress"
+      ></nx-kanban-board-tasks-list>
+    </div>
+
+    <!-- done -->
+    <div>
+      <nx-kanban-board-tasks-list
+        id="done"
+        [connectedToIds]="['todo', 'inProgress']"
+        title="Done"
+        [tasks]="tasksDone"
+      ></nx-kanban-board-tasks-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.board-page {
+  &__tasks {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+
+    > div {
+      flex: 1;
+    }
+  }
+}

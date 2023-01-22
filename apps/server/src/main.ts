@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
 
 import tasksRoutes = require('./app/routes/tasks.route');
 import commentsRoutes = require('./app/routes/comments.route');
@@ -9,6 +10,8 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
