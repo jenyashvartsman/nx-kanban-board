@@ -13,6 +13,8 @@ export class BoardPageComponent implements OnInit {
   tasksInProgress: ITaskModel[] = [];
   tasksDone: ITaskModel[] = [];
 
+  taskStatuses = ETaskStatus;
+
   constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {
@@ -33,5 +35,9 @@ export class BoardPageComponent implements OnInit {
 
   mapTasksByStatus(tasks: ITaskModel[], status: ETaskStatus): ITaskModel[] {
     return tasks.filter((task) => task.status === status);
+  }
+
+  updateTask(task: ITaskModel): void {
+    this.tasksService.updateTasks(task.id, task.status).subscribe();
   }
 }

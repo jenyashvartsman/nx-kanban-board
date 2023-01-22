@@ -13,6 +13,7 @@ export interface TasksDataClient {
   createTask(task: ITaskCreateModel): ITaskModel;
   editTask(id: string, task: ITaskEditModel): ITaskModel | null;
   deleteTask(id: string): ITaskModel | null;
+  changeTaskStatus(id: string, status: ETaskStatus): ITaskModel | null;
 }
 
 export const createTasksDataClient = (): TasksDataClient => ({
@@ -58,6 +59,17 @@ export const createTasksDataClient = (): TasksDataClient => ({
       const deleteTask = { ...tasks[deleteTaskIndex] };
       tasks.splice(deleteTaskIndex, 1);
       return deleteTask;
+    } else {
+      return null;
+    }
+  },
+
+  changeTaskStatus(id: string, status: ETaskStatus) {
+    const changeTaskStatus = this.getTask(id);
+
+    if (changeTaskStatus) {
+      changeTaskStatus.status = status;
+      return changeTaskStatus;
     } else {
       return null;
     }

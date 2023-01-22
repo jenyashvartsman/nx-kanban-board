@@ -3,40 +3,48 @@
     <!-- todo -->
     <div>
       <nx-kanban-board-tasks-list
-        id="todo"
-        [connectedToIds]="['onHold', 'inProgress']"
+        [id]="taskStatuses.TODO"
+        [connectedToIds]="[taskStatuses.ON_HOLD, taskStatuses.IN_PROGRESS]"
         title="Todo"
         [tasks]="tasksTodo"
+        (taskMoved)="updateTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
 
     <!-- on hold -->
     <div>
       <nx-kanban-board-tasks-list
-        id="onHold"
-        [connectedToIds]="['todo', 'inProgress']"
+        [id]="taskStatuses.ON_HOLD"
+        [connectedToIds]="[taskStatuses.TODO, taskStatuses.IN_PROGRESS]"
         title="On hold"
         [tasks]="tasksOnHold"
+        (taskMoved)="updateTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
 
     <!-- in progress -->
     <div>
       <nx-kanban-board-tasks-list
-        id="inProgress"
-        [connectedToIds]="['todo', 'onHold', 'done']"
+        [id]="taskStatuses.IN_PROGRESS"
+        [connectedToIds]="[
+          taskStatuses.TODO,
+          taskStatuses.ON_HOLD,
+          taskStatuses.DONE
+        ]"
         title="In progress"
         [tasks]="tasksInProgress"
+        (taskMoved)="updateTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
 
     <!-- done -->
     <div>
       <nx-kanban-board-tasks-list
-        id="done"
-        [connectedToIds]="['todo', 'inProgress']"
+        [id]="taskStatuses.DONE"
+        [connectedToIds]="[taskStatuses.TODO, taskStatuses.IN_PROGRESS]"
         title="Done"
         [tasks]="tasksDone"
+        (taskMoved)="updateTask($event)"
       ></nx-kanban-board-tasks-list>
     </div>
   </div>

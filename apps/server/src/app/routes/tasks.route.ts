@@ -8,6 +8,7 @@ tasksRoutes
   .get('/:id', controller.getTask)
   .post('/', controller.createTask)
   .put('/:id', controller.editTask)
-  .delete('/:id', controller.deleteTask);
+  .delete('/:id', controller.deleteTask)
+  .put('/:id/status/:status', controller.changeTaskStatus);
 
 export = tasksRoutes;

@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
 import { createTasksDataClient } from '@nx-kanban-board/data';
-import { ITaskCreateModel, ITaskEditModel } from '@nx-kanban-board/api';
+import {
+  ETaskStatus,
+  ITaskCreateModel,
+  ITaskEditModel,
+} from '@nx-kanban-board/api';
 import { getNotFoundMessage } from '../util/util';
 
 const tasksDataClient = createTasksDataClient();
@@ -41,10 +45,20 @@ const deleteTask = (req: Request, res: Response) => {
     : res.status(404).send(getNotFoundMessage(taskId, 'task'));
 };
 
+const changeTaskStatus = (req: Request, res: Response) => {
+  const taskId = req.params.id;
+  const taskStatus: ETaskStatus = req.params.status;
+  const changeTaskStatus = tasksDataClient.changeTaskStatus(taskId, taskStatus);
+  changeTaskStatus
+    ? res.json(changeTaskStatus)
+    : res.status(404).send(getNotFoundMessage(taskId, 'task'));
+};
+
 export default {
   getTasks,
   getTask,
   createTask,
   editTask,
   deleteTask,
+  changeTaskStatus,
 };

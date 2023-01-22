@@ -1,6 +1,12 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ITaskModel } from '@nx-kanban-board/api';
+import { ETaskStatus, ITaskModel } from '@nx-kanban-board/api';
 import {
   CdkDragDrop,
   DragDropModule,
@@ -18,12 +24,14 @@ import { TaskCardComponent } from '../task-card/task-card.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class TasksListComponent {
-  @Input() id = '';
-  @Input() connectedToIds: string[] = [];
+  @Input() id!: ETaskStatus;
+  @Input() connectedToIds: ETaskStatus[] = [];
   @Input() title = '';
   @Input() tasks: ITaskModel[] = [];
 
-  drop(event: CdkDragDrop<ITaskModel[]>) {
+  @Output() taskMoved: EventEmitter<ITaskModel> = new EventEmitter();
+
+  drop(event: CdkDragDrop<ITaskModel[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -37,6 +45,10 @@ export class TasksListComponent {
         event.previousIndex,
         event.currentIndex
       );
+
+      const movedTask: ITaskModel = event.container.data[event.currentIndex];
+      movedTask.status = this.id;
+      this.taskMoved.emit(movedTask);
     }
   }
 }
