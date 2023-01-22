@@ -7,11 +7,12 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { TaskCardComponent } from '../task-card/task-card.component';
 
 @Component({
   selector: 'nx-kanban-board-tasks-list',
   standalone: true,
-  imports: [CommonModule, DragDropModule],
+  imports: [CommonModule, DragDropModule, TaskCardComponent],
   templateUrl: './tasks-list.component.html',
   styleUrls: ['./tasks-list.component.scss'],
   encapsulation: ViewEncapsulation.None,
