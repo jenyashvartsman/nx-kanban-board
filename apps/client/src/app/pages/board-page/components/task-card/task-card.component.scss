@@ -1,3 +1,8 @@
 .task-card {
   border-radius: 0;
+
+  &__title,
+  &__description {
+    word-break: break-all;
+  }
 }
